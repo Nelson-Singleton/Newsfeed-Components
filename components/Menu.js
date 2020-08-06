@@ -55,11 +55,10 @@ menuButton.addEventListener('click', event => {
 })
 
   return menu;
-
 }
 
+//select header and append menu to it
 const menuHeader = document.querySelector('.header')
-
 menuItems.forEach(menuObject => {
   const theMenu = menuMaker(menuObject)
   menuHeader.appendChild(theMenu)

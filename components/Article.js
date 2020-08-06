@@ -161,6 +161,11 @@ p2.textContent = articleObj.secondParagraph
 p3.textContent = articleObj.thirdParagraph
 button.textContent = "+"
 
+//add classes 
+article.classList.add("article")
+button.classList.add("expandButton")
+date.classList.add("date")
+
 //add event listener to button
   button.addEventListener('click', event => {
     article.classList.toggle('article-open')
