@@ -86,7 +86,27 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+    title: 'Article Title 1',
+    date: 'Aug 5th, 2020',
+    firstParagraph: 'Boom topgallant chase Spanish Main gangplank yardarm reef sails me rigging take a caulk. Heave to Brethren of the Coast hulk Chain Shot rum Admiral of the Black aye mizzenmast warp dead men tell no tales. Nipperkin mutiny coffer ho Barbary Coast pink crimp plunder bowsprit Corsair.',
+
+    secondParagraph: `Run a rig fire in the hole gangway ballast topmast sloop haul wind long boat red ensign yo-ho-ho. Log rope's end rigging mizzenmast rum league Letter of Marque aft bucko grog. Sink me Plate Fleet boatswain gangplank mizzenmast heave down quarter lanyard piracy warp.`,
+
+    thirdParagraph: `Swab gibbet doubloon Sink me driver league spirits Sail ho scuttle fire ship. Ahoy gaff quarter pressgang pinnace yo-ho-ho keelhaul Letter of Marque yard capstan. Nipperkin scurvy dead men tell no tales avast barkadeer Gold Road bilge pirate dance the hempen jig bucko.`
+  },
+  {
+    title: 'Article Title 2',
+    date: 'Aug 6th, 2020',
+    firstParagraph: 'Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror.',
+
+    secondParagraph: `Cum horribilem resurgere de sepulcris creaturis, sicut de iride et serpens. Pestilentia, ipsa screams. Pestilentia est haec ambulabat mortuos. Sicut malus voodoo. Aenean a dolor vulnerum aperire accedunt, mortui iam vivam. Qui tardius moveri, sed in magna copia sint terribiles legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi odores aere implent.`,
+
+    thirdParagraph: 'Tremor est vivos magna. Expansis ulnis video missing carnem armis caeruleum in locis. A morbo amarus in auras. Nihil horum sagittis tincidunt, gelida portenta. The unleashed virus est, et iam mortui ambulabunt super terram. Souless mortuum oculos attonitos back zombies. An hoc incipere Clairvius Narcisse, an ante? Is bello mundi z?'
+
+    
+  },
 ];
 
 /*
@@ -114,3 +134,55 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+//write function that creates an article object
+function articleMaker(articleObj){
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const p1 = document.createElement('p')
+  const p2 = document.createElement('p')
+  const p3 = document.createElement('p')
+  const button = document.createElement('span')
+
+//structure elements
+article.appendChild(title)
+article.appendChild(date)
+article.appendChild(p1)
+article.appendChild(p2)
+article.appendChild(p3)
+article.appendChild(button)
+
+//add text content
+title.textContent = articleObj.title
+date.textContent = articleObj.date
+p1.textContent = articleObj.firstParagraph
+p2.textContent = articleObj.secondParagraph
+p3.textContent = articleObj.thirdParagraph
+button.textContent = "+"
+
+//add classes 
+article.classList.add("article")
+button.classList.add("expandButton")
+date.classList.add("date")
+
+//add event listener to button
+  button.addEventListener('click', event => {
+    article.classList.toggle('article-open')
+    
+  })
+  return article
+}
+
+
+
+//write a loop that creates an article div and appends it to articles
+const articles = document.querySelector('.articles')
+
+data.forEach(articleObject => {
+  const theArticle = articleMaker(articleObject)
+  articles.appendChild(theArticle)
+})
+
+
+
