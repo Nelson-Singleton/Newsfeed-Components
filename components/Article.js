@@ -159,7 +159,7 @@ date.textContent = articleObj.date
 p1.textContent = articleObj.firstParagraph
 p2.textContent = articleObj.secondParagraph
 p3.textContent = articleObj.thirdParagraph
-button.textContent = "Test"
+button.textContent = "+"
 
 //add event listener to button
   button.addEventListener('click', event => {
@@ -173,6 +173,7 @@ button.textContent = "Test"
 
 //write a loop that creates an article div and appends it to articles
 const articles = document.querySelector('.articles')
+
 data.forEach(articleObject => {
   const theArticle = articleMaker(articleObject)
   articles.appendChild(theArticle)
