@@ -41,9 +41,9 @@ function menuMaker(menuObj){
 menu.classList.add('menu')
 
 //iterate and create list items
-  menuItems.forEach(item => {
+menuItems.forEach(item => {
     const list = document.createElement('li') //create list item
-    list.textContent = menuObj //add text to list item
+    list.textContent = item
     listContainer.appendChild(list) // append list item to ul
 
   });
